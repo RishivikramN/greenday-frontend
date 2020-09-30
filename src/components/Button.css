@@ -1,0 +1,15 @@
+.btn{
+    width: 150px;
+    height: 37px;
+    border: none;
+    margin-top: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: white;
+    color: #208a3c;
+    font-weight: 550;
+    font-size: medium;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
