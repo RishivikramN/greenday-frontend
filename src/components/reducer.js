@@ -1,9 +1,12 @@
 export const initialState={
     products:[],
     search:"",
-    sortType:"asc",
+    sortType:1,
     sortClicked:1,
-    isLoading:1
+    isLoading:1,
+    totalProducts:0,
+    currentPage:1,
+    loadMoreVisible:1
 }
 
 export const reducer=(state,action)=>{
@@ -13,6 +16,17 @@ export const reducer=(state,action)=>{
                 products: action.item
             };
     
+        case "APPEND_PRODUCTS":
+            return {
+                ...state,
+                products: [...state.products,...action.item]
+            }
+        case "SET_LOADMOREVISIBLE":
+            return {
+                ...state,
+                loadMoreVisible:action.item
+            }
+
         case "ADD_SEARCH_INPUT":
 
             return {
@@ -37,6 +51,18 @@ export const reducer=(state,action)=>{
             return {
                 ...state,
                 isLoading:action.item
+            }
+
+        case "TOTAL_PRODUCTS":
+            return {
+                ...state,
+                totalProducts:action.item
+            }
+
+        case "SET_CURRENTPAGE":
+            return {
+                ...state,
+                currentPage:action.item
             }
 
         default:
